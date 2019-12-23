@@ -15,11 +15,6 @@ import {AbstractControl, ControlValueAccessor, FormControl, FormGroup, NG_VALUE_
 
 export class SearchComponent implements OnInit, ControlValueAccessor {
 
-  private defaultValue = {
-    value: null,
-    payment: 'default payment'
-  };
-
   value: any;
   isDisabled = false;
   form: FormGroup;
@@ -58,10 +53,7 @@ export class SearchComponent implements OnInit, ControlValueAccessor {
 
   setSearch(val: string) {
     if (!this.isDisabled) {
-      this.onChanged({
-        value: val,
-        payment: 'payment method'
-      });
+      this.onChanged(val);
       this.onTouched();
     }
   }
