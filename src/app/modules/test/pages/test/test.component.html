@@ -1,0 +1,15 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="row">
+    <div class="col-12">
+      <label for="name">name</label>
+      <input id="name" formControlName="name" />
+    </div>
+    <div class="col-12">
+      <pre>{{form.get('search').value | json:4}}</pre>
+      <app-search formControlName="search"></app-search>
+    </div>
+    <div class="col-12">
+      <button type="submit" [disabled]="form.invalid">submit</button >
+    </div>
+  </div>
+</form>
