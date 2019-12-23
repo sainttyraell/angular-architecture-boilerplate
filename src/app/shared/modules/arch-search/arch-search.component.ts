@@ -2,18 +2,18 @@ import {Component, forwardRef, OnInit} from '@angular/core';
 import {AbstractControl, ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: 'search.component.html',
+  selector: 'app-arch-search',
+  templateUrl: 'arch-search.component.html',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => SearchComponent),
+      useExisting: forwardRef(() => ArchSearchComponent),
       multi: true
     }
   ]
 })
 
-export class SearchComponent implements OnInit, ControlValueAccessor {
+export class ArchSearchComponent implements OnInit, ControlValueAccessor {
 
   value: any;
   isDisabled = false;
