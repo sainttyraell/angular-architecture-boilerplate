@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core'
-import { MatCheckboxModule } from '@angular/material'
-import { ArchCheckboxComponent } from './arch-checkbox.component'
+import { NgModule } from '@angular/core';
+import { MatCheckboxModule } from '@angular/material';
+import { ArchCheckboxComponent } from './arch-checkbox.component';
 
 @NgModule({
   declarations: [ArchCheckboxComponent],

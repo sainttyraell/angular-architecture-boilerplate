@@ -1,5 +1,11 @@
-import {Component, forwardRef, Input, OnInit} from '@angular/core';
-import {AbstractControl, ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR,} from '@angular/forms';
+import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import {
+  AbstractControl,
+  ControlValueAccessor,
+  FormControl,
+  FormGroup,
+  NG_VALUE_ACCESSOR,
+} from '@angular/forms';
 
 @Component({
   providers: [
@@ -13,22 +19,20 @@ import {AbstractControl, ControlValueAccessor, FormControl, FormGroup, NG_VALUE_
   templateUrl: 'arch-input.component.html',
 })
 export class ArchInputComponent implements OnInit, ControlValueAccessor {
-  @Input() textLabel = 'Default label';
-  @Input() isDisabled = false;
-
-  private value: any;
-
-  private form: FormGroup;
-
   get search(): AbstractControl {
     return this.form.get('input');
   }
 
-  onChanged: any = () => {
-  };
+  @Input() textLabel = 'Default label';
+  @Input() isDisabled = false;
 
-  onTouched: any = () => {
-  };
+  form: FormGroup;
+
+  private value: any;
+
+  onChanged: any = () => {};
+
+  onTouched: any = () => {};
 
   ngOnInit() {
     this.form = new FormGroup({

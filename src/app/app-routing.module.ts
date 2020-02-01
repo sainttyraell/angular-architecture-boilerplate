@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core'
-import { RouterModule } from '@angular/router'
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
-import { AppRoutes } from './app.routes'
+import { AppRoutes } from './app.routes';
 
 @NgModule({
   exports: [RouterModule],

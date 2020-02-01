@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core'
-import { MatButtonModule } from '@angular/material'
-import { ArchButtonComponent } from './arch-button.component'
+import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material';
+import { ArchButtonComponent } from './arch-button.component';
 
 @NgModule({
   declarations: [ArchButtonComponent],

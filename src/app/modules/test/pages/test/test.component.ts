@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core'
-import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-test-component',
   templateUrl: './test.component.html',
 })
 export class TestComponent implements OnInit {
-  form: FormGroup
+  form: FormGroup;
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -14,7 +14,7 @@ export class TestComponent implements OnInit {
       search: new FormControl(null, {
         validators: [Validators.required],
       }),
-    })
+    });
   }
 
   submit(): any {}

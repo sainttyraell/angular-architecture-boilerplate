@@ -1,5 +1,5 @@
 export class AbstractComponent {
   trackByFn(index, item?, attribute?) {
-    return item && item[attribute] ? item : index
+    return item && item[attribute] ? item : index;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-arch-button',
@@ -6,8 +6,8 @@ import { Component, Input } from '@angular/core'
 })
 export class ArchButtonComponent {
   @Input()
-  isDisabled = false
+  isDisabled = false;
 
   @Input()
-  color: 'primary' | 'accent' | 'warn' = 'primary'
+  color: 'primary' | 'accent' | 'warn' = 'primary';
 }
