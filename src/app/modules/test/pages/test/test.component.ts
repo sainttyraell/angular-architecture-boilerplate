@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ButtonColorEnum } from '../../../../shared/modules/arch-button/enum/button-color.enum';
 
 @Component({
   selector: 'app-test-component',
@@ -17,5 +18,9 @@ export class TestComponent implements OnInit {
     });
   }
 
-  submit(): any {}
+  submit(): void {}
+
+  get ButtonColorEnum() {
+    return ButtonColorEnum;
+  }
 }

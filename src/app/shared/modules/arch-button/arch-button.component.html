@@ -1,1 +1,45 @@
-<button [color]="color" [disabled]="isDisabled" mat-button>im button!</button>
+<ng-container [ngSwitch]="buttonStyle">
+  <ng-container
+    *ngSwitchCase="ButtonStyleEnum.BASIC"
+    [ngTemplateOutlet]="basicTemplate"
+  ></ng-container>
+  <ng-container
+    *ngSwitchCase="ButtonStyleEnum.RAISED"
+    [ngTemplateOutlet]="raisedTemplate"
+  ></ng-container>
+  <ng-container
+    *ngSwitchCase="ButtonStyleEnum.STROKE"
+    [ngTemplateOutlet]="strokedTemplate"
+  ></ng-container>
+</ng-container>
+
+<ng-template #basicTemplate>
+  <button
+    [color]="color"
+    [type]="buttonType"
+    [disabled]="isDisabled"
+    mat-button
+  >
+    {{ textLabel }}
+  </button>
+</ng-template>
+<ng-template #raisedTemplate>
+  <button
+    [color]="color"
+    [type]="buttonType"
+    [disabled]="isDisabled"
+    mat-raised-button
+  >
+    {{ textLabel }}
+  </button>
+</ng-template>
+<ng-template #strokedTemplate>
+  <button
+    [color]="color"
+    [type]="buttonType"
+    [disabled]="isDisabled"
+    mat-stroked-button
+  >
+    {{ textLabel }}
+  </button>
+</ng-template>

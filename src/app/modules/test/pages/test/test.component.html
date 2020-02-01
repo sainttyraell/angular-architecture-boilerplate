@@ -13,9 +13,13 @@
       ></app-arch-input>
     </div>
     <div class="col-12">
-      <app-arch-button color [isDisabled]="form.invalid"
-        >submit</app-arch-button
-      >
+      <app-arch-button
+        textLabel="submit"
+        [buttonType]="'submit'"
+        [color]="ButtonColorEnum.PRIMARY"
+        [isDisabled]="form.invalid"
+        [buttonStyle]="2"
+      ></app-arch-button>
     </div>
   </div>
 </form>

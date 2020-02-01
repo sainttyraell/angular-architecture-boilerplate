@@ -1,4 +1,11 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  forwardRef,
+  Input,
+  OnInit,
+} from '@angular/core';
 import {
   AbstractControl,
   ControlValueAccessor,
@@ -8,6 +15,7 @@ import {
 } from '@angular/forms';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       multi: true,
@@ -29,6 +37,8 @@ export class ArchInputComponent implements OnInit, ControlValueAccessor {
   form: FormGroup;
 
   private value: any;
+
+  constructor(private changeDetectorRef: ChangeDetectorRef) {}
 
   onChanged: any = () => {};
 
