@@ -1,10 +1,10 @@
-import {NgModule} from '@angular/core';
-import {MatButtonModule} from '@angular/material';
-import {ArchButtonComponent} from './arch-button.component';
+import { NgModule } from '@angular/core'
+import { MatButtonModule } from '@angular/material'
+import { ArchButtonComponent } from './arch-button.component'
 
 @NgModule({
-  imports: [MatButtonModule],
+  declarations: [ArchButtonComponent],
   exports: [ArchButtonComponent],
-  declarations: [ArchButtonComponent]
+  imports: [MatButtonModule],
 })
 export class ArchButtonModule {}

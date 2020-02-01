@@ -5,11 +5,11 @@
       <input id="name" formControlName="name" />
     </div>
     <div class="col-12">
-      <pre>{{form.get('search').value}}</pre>
-      <app-arch-search formControlName="search"></app-arch-search>
+      <pre>{{ form.get('search').value }}</pre>
+      <app-arch-input formControlName="search"></app-arch-input>
     </div>
     <div class="col-12">
-      <button type="submit" [disabled]="form.invalid">submit</button >
+      <app-arch-button [isDisabled]="form.invalid">submit</app-arch-button>
     </div>
   </div>
 </form>

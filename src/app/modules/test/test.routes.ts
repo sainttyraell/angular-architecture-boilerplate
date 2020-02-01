@@ -1,8 +1,8 @@
-import {TestComponent} from './pages/test/test.component';
+import { TestComponent } from './pages/test/test.component'
 
 export const TestRoutes = [
   {
+    component: TestComponent,
     path: '',
-    component: TestComponent
-  }
+  },
 ]
