@@ -1,11 +1,5 @@
-import { Component, forwardRef, OnInit } from '@angular/core'
-import {
-  AbstractControl,
-  ControlValueAccessor,
-  FormControl,
-  FormGroup,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms'
+import {Component, forwardRef, Input, OnInit} from '@angular/core';
+import {AbstractControl, ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR,} from '@angular/forms';
 
 @Component({
   providers: [
@@ -19,48 +13,53 @@ import {
   templateUrl: 'arch-input.component.html',
 })
 export class ArchInputComponent implements OnInit, ControlValueAccessor {
-  value: any
-  isDisabled = false
-  form: FormGroup
+  @Input() textLabel = 'Default label';
+  @Input() isDisabled = false;
+
+  private value: any;
+
+  private form: FormGroup;
 
   get search(): AbstractControl {
-    return this.form.get('input')
+    return this.form.get('input');
   }
 
-  onChanged: any = () => {}
+  onChanged: any = () => {
+  };
 
-  onTouched: any = () => {}
+  onTouched: any = () => {
+  };
 
   ngOnInit() {
     this.form = new FormGroup({
       input: new FormControl(null),
-    })
+    });
 
     this.search.valueChanges.subscribe((val: string) => {
-      this.setSearch(val)
-    })
+      this.setSearch(val);
+    });
   }
 
   registerOnChange(fn: any): void {
-    this.onChanged = fn
+    this.onChanged = fn;
   }
 
   registerOnTouched(fn: any): void {
-    this.onTouched = fn
+    this.onTouched = fn;
   }
 
   writeValue(obj: string): void {
-    this.value = obj
+    this.value = obj;
   }
 
   setSearch(val: string) {
     if (!this.isDisabled) {
-      this.onChanged(val)
-      this.onTouched()
+      this.onChanged(val);
+      this.onTouched();
     }
   }
 
   setDisabledState(isDisabled: boolean): void {
-    this.isDisabled = isDisabled
+    this.isDisabled = isDisabled;
   }
 }

@@ -1,15 +1,21 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
   <div class="row">
     <div class="col-12">
-      <label for="name">name</label>
-      <input id="name" formControlName="name" />
+      <app-arch-input
+        [textLabel]="'Name'"
+        formControlName="name"
+      ></app-arch-input>
     </div>
     <div class="col-12">
-      <pre>{{ form.get('search').value }}</pre>
-      <app-arch-input formControlName="search"></app-arch-input>
+      <app-arch-input
+        [textLabel]="'Search'"
+        formControlName="search"
+      ></app-arch-input>
     </div>
     <div class="col-12">
-      <app-arch-button [isDisabled]="form.invalid">submit</app-arch-button>
+      <app-arch-button color [isDisabled]="form.invalid"
+        >submit</app-arch-button
+      >
     </div>
   </div>
 </form>

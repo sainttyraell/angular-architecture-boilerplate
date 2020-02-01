@@ -3,6 +3,8 @@
   "extends": ["tslint:recommended", "tslint-config-prettier"],
   "rules": {
     "member-access": [true, "no-public"],
-    "no-empty": [true, "allow-empty-catch", "allow-empty-functions"]
+    "no-empty": [true, "allow-empty-catch", "allow-empty-functions"],
+    "trailing-comma": true,
+    "semicolon": true
   }
 }
