@@ -7,6 +7,12 @@
       ></app-arch-input>
     </div>
     <div class="col-12">
+      <app-arch-checkbox
+        label="active"
+        formControlName="active"
+      ></app-arch-checkbox>
+    </div>
+    <div class="col-12">
       <app-arch-input
         [textLabel]="'Search'"
         formControlName="search"
@@ -15,9 +21,8 @@
     <div class="col-12">
       <app-arch-button
         textLabel="submit"
-        [buttonType]="'submit'"
+        [buttonType]="ButtonTypeEnum.SUBMIT"
         [color]="ButtonColorEnum.PRIMARY"
-        [isDisabled]="form.invalid"
         [buttonStyle]="2"
       ></app-arch-button>
     </div>

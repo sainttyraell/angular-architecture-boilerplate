@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import * as validators from '../../../../core/validators';
 import { ButtonColorEnum } from '../../../../shared/modules/arch-button/enum/button-color.enum';
+import { ButtonTypeEnum } from '../../../../shared/modules/arch-button/enum/button-type.enum';
 
 @Component({
   selector: 'app-test-component',
@@ -11,9 +13,10 @@ export class TestComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
+      active: new FormControl(false),
       name: new FormControl(null),
       search: new FormControl(null, {
-        validators: [Validators.required],
+        validators: [Validators.required, validators.Digit()],
       }),
     });
   }
@@ -22,5 +25,9 @@ export class TestComponent implements OnInit {
 
   get ButtonColorEnum() {
     return ButtonColorEnum;
+  }
+
+  get ButtonTypeEnum() {
+    return ButtonTypeEnum;
   }
 }
