@@ -37,11 +37,11 @@ export class ArchCheckboxComponent
     return this.form.get('checkbox');
   }
 
+  form = new FormGroup({ checkbox: new FormControl(false) });
   isDisabled = false;
 
   private valueChangesSubscription: Subscription;
   private value: boolean;
-  private form = new FormGroup({ checkbox: new FormControl(false) });
 
   ngOnInit(): void {
     this.valueChangesSubscription = this.checkbox.valueChanges.subscribe(
