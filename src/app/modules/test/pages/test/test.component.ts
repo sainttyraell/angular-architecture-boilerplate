@@ -5,7 +5,7 @@ import { ButtonColorEnum } from '../../../../shared/modules/arch-button/enum/but
 import { ButtonTypeEnum } from '../../../../shared/modules/arch-button/enum/button-type.enum';
 
 @Component({
-  selector: 'app-test-component',
+  selector: 'arch-test-component',
   templateUrl: './test.component.html',
 })
 export class TestComponent implements OnInit {
@@ -13,7 +13,7 @@ export class TestComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      active: new FormControl(false),
+      active: new FormControl(true),
       name: new FormControl(null),
       search: new FormControl(null, {
         validators: [Validators.required, validators.Digit()],

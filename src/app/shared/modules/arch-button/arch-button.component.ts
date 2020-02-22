@@ -5,7 +5,7 @@ import { ButtonTypeEnum } from './enum/button-type.enum';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'app-arch-button',
+  selector: 'arch-button',
   templateUrl: './arch-button.component.html',
 })
 export class ArchButtonComponent {

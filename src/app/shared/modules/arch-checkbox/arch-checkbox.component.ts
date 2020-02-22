@@ -6,17 +6,8 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import {
-  AbstractControl,
-  ControlValueAccessor,
-  FormControl,
-  FormGroup,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms';
-import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';
-import { Subscription } from 'rxjs';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-@AutoUnsubscribe()
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
@@ -26,36 +17,27 @@ import { Subscription } from 'rxjs';
       useExisting: forwardRef(() => ArchCheckboxComponent),
     },
   ],
-  selector: 'app-arch-checkbox',
+  selector: 'arch-checkbox',
   templateUrl: './arch-checkbox.component.html',
 })
 export class ArchCheckboxComponent
   implements OnInit, OnDestroy, ControlValueAccessor {
   @Input() label = 'default label';
+  @Input() labelPosition: 'before' | 'after' = 'after';
+  @Input() value = false;
+  @Input() isDisabled = false;
 
-  get checkbox(): AbstractControl {
-    return this.form.get('checkbox');
+  ngOnInit(): void {}
+
+  onCheckboxChange(value: boolean) {
+    this.setCheckbox(value);
   }
 
-  form = new FormGroup({ checkbox: new FormControl(false) });
-  isDisabled = false;
-
-  private valueChangesSubscription: Subscription;
-  private value: boolean;
-
-  ngOnInit(): void {
-    this.valueChangesSubscription = this.checkbox.valueChanges.subscribe(
-      (value: boolean) => {
-        this.setCheckbox(value);
-      }
-    );
-  }
-
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: (value: any) => void): void {
     this.onChanged = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
 
@@ -76,6 +58,6 @@ export class ArchCheckboxComponent
 
   ngOnDestroy(): void {}
 
-  private onChanged: any = () => {};
-  private onTouched: any = () => {};
+  private onChanged: (value: any) => void = () => {};
+  private onTouched: () => void = () => {};
 }

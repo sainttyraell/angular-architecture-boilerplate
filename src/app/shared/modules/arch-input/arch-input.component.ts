@@ -27,7 +27,7 @@ import { Subscription } from 'rxjs';
       useExisting: forwardRef(() => ArchInputComponent),
     },
   ],
-  selector: 'app-arch-input',
+  selector: 'arch-input',
   templateUrl: 'arch-input.component.html',
 })
 export class ArchInputComponent
