@@ -4,6 +4,7 @@ import {
   Component,
   forwardRef,
   Input,
+  OnDestroy,
   OnInit,
 } from '@angular/core';
 import {
@@ -13,7 +14,10 @@ import {
   FormGroup,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
+import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';
+import { Subscription } from 'rxjs';
 
+@AutoUnsubscribe()
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
@@ -23,11 +27,12 @@ import {
       useExisting: forwardRef(() => ArchInputComponent),
     },
   ],
-  selector: 'app-arch-input',
+  selector: 'arch-input',
   templateUrl: 'arch-input.component.html',
 })
-export class ArchInputComponent implements OnInit, ControlValueAccessor {
-  get search(): AbstractControl {
+export class ArchInputComponent
+  implements OnInit, OnDestroy, ControlValueAccessor {
+  get input(): AbstractControl {
     return this.form.get('input');
   }
 
@@ -36,22 +41,21 @@ export class ArchInputComponent implements OnInit, ControlValueAccessor {
 
   form: FormGroup;
 
+  private valueChangesSubscription: Subscription;
   private value: any;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {}
-
-  onChanged: any = () => {};
-
-  onTouched: any = () => {};
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.form = new FormGroup({
       input: new FormControl(null),
     });
 
-    this.search.valueChanges.subscribe((val: string) => {
-      this.setSearch(val);
-    });
+    this.valueChangesSubscription = this.input.valueChanges.subscribe(
+      (val: string) => {
+        this.setInput(val);
+      }
+    );
   }
 
   registerOnChange(fn: any): void {
@@ -66,9 +70,9 @@ export class ArchInputComponent implements OnInit, ControlValueAccessor {
     this.value = obj;
   }
 
-  setSearch(val: string) {
+  setInput(value: string): void {
     if (!this.isDisabled) {
-      this.onChanged(val);
+      this.onChanged(value);
       this.onTouched();
     }
   }
@@ -76,4 +80,9 @@ export class ArchInputComponent implements OnInit, ControlValueAccessor {
   setDisabledState(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
   }
+
+  ngOnDestroy(): void {}
+
+  private onChanged: any = () => {};
+  private onTouched: any = () => {};
 }

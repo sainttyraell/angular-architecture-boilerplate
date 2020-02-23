@@ -1,3 +1,7 @@
-<div>
-  <mat-checkbox>im checkbox</mat-checkbox>
-</div>
+<mat-checkbox
+  [(ngModel)]="value"
+  [disabled]="isDisabled"
+  [labelPosition]="labelPosition"
+  (ngModelChange)="onCheckboxChange($event)"
+  >{{ label }}</mat-checkbox
+>
