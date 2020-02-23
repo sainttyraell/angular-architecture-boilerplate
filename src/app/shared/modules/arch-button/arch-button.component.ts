@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ThemePalette } from '@angular/material';
 import { ButtonColorEnum } from './enum/button-color.enum';
 import { ButtonStyleEnum } from './enum/button-style.enum';
 import { ButtonTypeEnum } from './enum/button-type.enum';
@@ -13,7 +14,7 @@ export class ArchButtonComponent {
   isDisabled = false;
 
   @Input()
-  color = ButtonColorEnum.BASIC;
+  color: ThemePalette = ButtonColorEnum.BASIC as ThemePalette;
 
   @Input()
   textLabel = 'Default label';

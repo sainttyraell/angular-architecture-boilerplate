@@ -1,6 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
   <div class="row">
     <div class="col-12">
+      <span [translate]="'test'"></span>
       <arch-input [textLabel]="'Name'" formControlName="name"></arch-input>
     </div>
     <div class="col-12">
