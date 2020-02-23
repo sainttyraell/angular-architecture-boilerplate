@@ -1,4 +1,4 @@
-import { ITrackBy } from '../../../core/interceptors/track-by.interface';
+import { ITrackBy } from '@app/core/interceptors/track-by.interface';
 
 export class AbstractComponent implements ITrackBy {
   trackByFn(index, item?, attribute?) {
